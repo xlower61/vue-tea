@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    这是首页
+  <div class="cart">
+    这是cart
     <TabBar></TabBar>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 import TabBar from '@/components/common/TabBar.vue'
 export default {
-  name: 'HomeView',
+  name: 'CartView',
   components: { TabBar }
 }
 </script>
