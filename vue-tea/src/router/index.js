@@ -5,18 +5,45 @@ import HomeView from '../views/HomeView.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  // 首页
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
+  // 分类
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/sort',
+    name: 'Sort',
+    component: () => import('../views/SortView.vue')
+  },
+  // 购物车
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import('../views/CartView.vue')
+  },
+  // 我的
+  {
+    path: '/mine',
+    name: 'Mine',
+    component: () => import('../views/MineView.vue')
+  },
+  // 搜索页
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('../views/SearchView.vue'),
+    children: [
+      { path: '/', name: 'search-home', component: () => import('../views/search/SearchHomeView.vue') },
+      { path: 'list', name: 'search-list', component: () => import('../views/search/SearchListView.vue') }
+    ]
+  },
+  // 详情页
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: () => import('../views/DetailView.vue')
   }
 ]
 
