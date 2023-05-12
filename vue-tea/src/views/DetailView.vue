@@ -80,7 +80,6 @@
         <img src="/images/introduce.jpg" alt="" />
         <img src="/images/introduce.jpg" alt="" />
         <img src="/images/introduce.jpg" alt="" />
-        <img src="/images/introduce.jpg" alt="" />
       </div>
     </section>
 
