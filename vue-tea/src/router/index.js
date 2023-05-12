@@ -5,25 +5,45 @@ import HomeView from '../views/HomeView.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  // 首页
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
+  // 分类
   {
-    path: '/list',
-    name: 'list',
-    component: () => import('../views/ListView.vue')
+    path: '/sort',
+    name: 'Sort',
+    component: () => import('../views/SortView.vue')
   },
+  // 购物车
   {
     path: '/cart',
-    name: 'cart',
+    name: 'Cart',
     component: () => import('../views/CartView.vue')
   },
+  // 我的
   {
     path: '/mine',
-    name: 'mine',
+    name: 'Mine',
     component: () => import('../views/MineView.vue')
+  },
+  // 搜索页
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('../views/SearchView.vue'),
+    children: [
+      { path: '/', name: 'search-home', component: () => import('../views/search/SearchHomeView.vue') },
+      { path: 'list', name: 'search-list', component: () => import('../views/search/SearchListView.vue') }
+    ]
+  },
+  // 详情页
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: () => import('../views/DetailView.vue')
   }
 ]
 

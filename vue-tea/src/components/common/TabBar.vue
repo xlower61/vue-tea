@@ -1,8 +1,8 @@
 <template>
   <div class="tabbar">
     <ul>
-      <li v-for="(item, index) in routerList" :key="index" @click="switchTab(item.path)">
-        <img :src="$route.path == item.path ? item.selected : item.active" alt="" />
+      <li v-for="(item, index) in routerList" :key="index" :class="{ choosen: $route.path == item.path }" @click="switchTab(item.path)">
+        <i :class="item.icon"></i>
         <div :class="{ choosen: $route.path == item.path }">{{ item.title }}</div>
       </li>
     </ul>
@@ -17,26 +17,22 @@ export default {
         {
           title: '首页',
           path: '/',
-          active: './images/home.png',
-          selected: './images/home-select.png'
+          icon: 'iconfont icon-shouye'
         },
         {
           title: '分类',
-          path: '/list',
-          active: './images/list.png',
-          selected: './images/list-select.png'
+          path: '/sort',
+          icon: 'iconfont icon-fenlei'
         },
         {
           title: '购物车',
           path: '/cart',
-          active: './images/cart.png',
-          selected: './images/cart-select.png'
+          icon: 'iconfont icon-gouwuche'
         },
         {
           title: '我的',
           path: '/mine',
-          active: './images/my.png',
-          selected: './images/my-select.png'
+          icon: 'iconfont icon-wode'
         }
       ]
     }
@@ -47,7 +43,7 @@ export default {
       if (this.$router.path == path) {
         return
       }
-      this.$router.replace(
+      this.$router.push(
         path,
         () => {},
         () => {}
@@ -59,9 +55,6 @@ export default {
 
 <style scoped>
 .tabbar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   height: 60px;
   background-color: #fff;
@@ -78,8 +71,9 @@ export default {
   flex-flow: column;
   align-items: center;
 }
-.tabbar ul li img {
-  width: 31px;
+.tabbar ul li i {
+  display: block;
+  font-size: 32px;
 }
 .tabbar ul li div {
   font-size: 16px;
