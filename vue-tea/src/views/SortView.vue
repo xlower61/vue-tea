@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="list container">
     <header>
       <div class="return">
         <i class="iconfont icon-31fanhui1 search-return" @click="goBack"></i>
@@ -9,7 +9,7 @@
         <span>搜你喜欢...</span>
       </div>
       <div class="home">
-        <i class="iconfont icon-home"></i>
+        <i class="iconfont icon-home" @click="goHome"></i>
       </div>
     </header>
     <section>
@@ -44,11 +44,11 @@
 
 <script>
 import TabBar from '@/components/common/TabBar.vue'
-import { getSortAPI } from '@/common/api/getSortAPI'
+import { getSortAPI } from '@/common/api/SortAPI'
 //引入滚动插件better-scroll
 import BetterScroll from 'better-scroll'
 export default {
-  name: 'ListView',
+  name: 'SortView',
   components: { TabBar },
   data() {
     return {
@@ -86,12 +86,12 @@ export default {
       })
       this.$nextTick(() => {
         //左侧滑动(betterscroll会自动屏蔽click事件，只有修改了probeType才会返回坐标)
-        this.scroll = new BetterScroll(this.$refs.left, { movable: false, click: true, probeType: 3 })
+        this.scroll = new BetterScroll(this.$refs.left, { movable: false, click: true, probeType: 3, bounce: false })
         //右侧滑动
-        this.rightScroll = new BetterScroll(this.$refs.right, { click: true, probeType: 3 })
-        //最开始0px，用数组rightHeight记录
+        this.rightScroll = new BetterScroll(this.$refs.right, { click: true, probeType: 3, bounce: false })
+        //最开始0rem，用数组rightHeight记录
         this.rightHeightList.push(0)
-        //但其实是从100px开始加的
+        //但其实是从2.6667rem开始加的
         let height = 100
         //获取右侧每一块
         let lis = this.$refs.right.getElementsByClassName('shop-list')
@@ -120,30 +120,27 @@ export default {
     },
     goBack() {
       this.$router.back()
+    },
+    goHome() {
+      this.$router.push('./')
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .list {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 1.6rem;
     background-color: #b0352f;
 
     .return {
-      padding: 0 16px;
+      padding: 0 0.4267rem;
       i {
         color: #fff;
-        font-size: 24px;
+        font-size: 0.64rem;
       }
     }
 
@@ -151,39 +148,37 @@ export default {
       flex: 1;
       display: flex;
       align-items: center;
-      height: 30px;
+      height: 0.8rem;
       background-color: #fff;
-      padding: 0 16px;
-      border-radius: 16px;
+      padding: 0 0.4267rem;
+      border-radius: 0.4267rem;
       color: #999;
       i {
-        font-size: 18px;
-        padding-right: 6px;
+        font-size: 0.48rem;
+        padding-right: 0.16rem;
       }
       span {
-        font-size: 16px;
+        font-size: 0.4267rem;
       }
     }
 
     .home {
-      padding: 0 16px;
+      padding: 0 0.4267rem;
 
       i {
-        font-size: 28px;
+        font-size: 0.7467rem;
         color: #fff;
       }
     }
   }
 
   section {
-    flex: 1;
-    overflow: hidden;
     display: flex;
     .list-l {
-      width: 93px;
+      width: 2.48rem;
       background-color: #fff;
       overflow: hidden;
-      border-right: 1px solid #ccc;
+      border-right: 0.0267rem solid #ccc;
 
       ul {
         display: flex;
@@ -194,16 +189,16 @@ export default {
 
         li {
           width: 100%;
-          padding: 4px 0;
-          margin: 12px 0;
+          padding: 0.1067rem 0;
+          margin: 0.32rem 0;
           text-align: center;
-          font-size: 16px;
+          font-size: 0.4267rem;
         }
         .active {
           color: #b0352f;
-          border-left: 5px solid #b0352f;
+          border-left: 0.1333rem solid #b0352f;
           box-sizing: border-box;
-          padding-right: 5px;
+          padding-right: 0.1333rem;
         }
       }
     }
@@ -214,7 +209,7 @@ export default {
         display: flex;
         flex-direction: column;
         .view-img {
-          height: 100px;
+          height: 100.0012px;
           img {
             display: block;
             width: 90%;
@@ -223,7 +218,7 @@ export default {
           }
         }
         .shop-list:last-child {
-          padding-bottom: 440px;
+          padding-bottom: 199.0012px;
         }
         .shop-list {
           text-align: center;
@@ -233,7 +228,7 @@ export default {
               display: inline-block;
               font-size: 24px;
               font-weight: 400;
-              padding: 16px 0;
+              padding: 16.0013px 0;
             }
             div::before {
               position: absolute;
@@ -244,7 +239,7 @@ export default {
             }
             div::after {
               position: absolute;
-              right: -30px;
+              right: -0.8rem;
               content: '—';
               font-weight: 900;
               color: #ddd;
@@ -262,14 +257,14 @@ export default {
               align-items: center;
               width: 33.3%;
               height: 33.3%;
-              padding: 10px 0;
+              padding: 0.2667rem 0;
 
               img {
-                width: 53px;
-                height: 53px;
+                width: 1.4133rem;
+                height: 1.4133rem;
               }
               span {
-                font-size: 16px;
+                font-size: 0.4267rem;
               }
             }
           }
@@ -279,6 +274,6 @@ export default {
   }
 }
 /deep/ .tabbar {
-  border-top: 1px solid #ccc;
+  border-top: 0.0267rem solid #ccc;
 }
 </style>

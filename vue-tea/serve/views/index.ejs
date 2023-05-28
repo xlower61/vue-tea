@@ -2,10 +2,18 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p id="nai">对的， <%= title %></p>
+    <button id="naicha">点击</button>
+    <script>
+      let button = document.getElementById('naicha')
+      let p = document.getElementById('nai')
+      button.addEventListener('click', () => {
+        p.innerHTML = '点什么呢，憨憨'
+      })
+    </script>
   </body>
 </html>

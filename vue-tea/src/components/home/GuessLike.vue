@@ -36,17 +36,7 @@ export default {
   methods: {
     goDetail(id) {
       this.$router.push(
-        {
-          name: 'Detail',
-          //显式，地址栏有参数
-          query: {
-            id
-          }
-          //隐式
-          // params: {
-          //   id
-          // }
-        },
+        `detail/${id}`,
         () => {},
         () => {}
       )

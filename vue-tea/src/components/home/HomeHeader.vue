@@ -19,7 +19,11 @@ export default {
   name: 'HomeHeader',
   methods: {
     goSearch() {
-      this.$router.push('/search')
+      this.$router.push(
+        '/search',
+        () => {},
+        () => {}
+      )
     }
   }
 }

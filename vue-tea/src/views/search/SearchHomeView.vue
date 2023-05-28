@@ -38,7 +38,7 @@ import TabBar from '@/components/common/TabBar.vue'
 import SearchHeader from '@/components/search/SearchHeader.vue'
 
 export default {
-  name: 'SearchView',
+  name: 'SearchHomeView',
   components: { TabBar, SearchHeader },
   data() {
     return {
@@ -51,7 +51,6 @@ export default {
       this.$dialog
         .alert({
           message: '是否清空历史搜索记录',
-          showConfirmButton: true,
           showCancelButton: true
         })
         .then(() => {

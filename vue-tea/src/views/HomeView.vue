@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container">
     <div class="home-header">
       <div class="header">
         <HomeHeader></HomeHeader>
@@ -15,7 +15,7 @@
     <!-- 滚动插件  npm install better-scroll -S  -->
     <!-- 滚动区域加上wrapper类 -->
     <section ref="wrapper">
-      <div v-if="ready">
+      <div>
         <div v-for="(item, index) in listData" :key="index">
           <!-- 轮播图 -->
           <SwiperMain v-if="item.type === 'swiperList'" :swiperList="item.arr"></SwiperMain>
@@ -27,9 +27,6 @@
           <!-- 猜你喜欢 -->
           <GuessLike v-if="item.type === 'guessLikeList'" :guessLikeList="item.arr"></GuessLike>
         </div>
-      </div>
-      <div class="wait-data" v-else>
-        <van-loading size="48px" vertical color="#b0352f">加载中...</van-loading>
       </div>
     </section>
 
@@ -49,7 +46,7 @@ import AdS from '@/components/home/AdS.vue'
 //引入滚动插件better-scroll
 import BetterScroll from 'better-scroll'
 //引入封装的api
-import { getLyTabAPI } from '@/common/api/getHomeAPI'
+import { getLyTabAPI } from '@/common/api/HomeAPI'
 export default {
   name: 'HomeView',
   components: { TabBar, HomeHeader, SwiperMain, MidIcon, RecommendSlot, GuessLike, AdS },
@@ -61,8 +58,7 @@ export default {
         topBar: [],
         color: '#b0352f'
       },
-      listData: {},
-      ready: false
+      listData: {}
     }
   },
   methods: {
@@ -72,15 +68,11 @@ export default {
     },
     //请求数据
     async getData(item) {
-      //加载中
-      this.ready = false
       let { data: res } = await getLyTabAPI(item)
-      //页面显示
-      this.ready = true
       if (item == 0) {
         this.options.topBar = res.topBar.arr
       }
-      this.listData = res.data
+      this.listData = res.dataList
       //nextTick在页面DOM更新完毕后使用再滚动插件
       // 滚动页面子元素要比父元素高度高
       this.$nextTick(() => {
@@ -102,20 +94,11 @@ export default {
 }
 </script>
 <style scoped>
-.home {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
 .home-header {
   width: 100%;
 }
 
 section {
-  flex: 1;
-  overflow: hidden;
   padding-bottom: 30px;
 }
 ::v-deep .ly-tabs {
@@ -123,8 +106,5 @@ section {
   box-shadow: none;
   border-bottom: none;
   z-index: 999;
-}
-.wait-data {
-  margin-top: 2.6667rem;
 }
 </style>

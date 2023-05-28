@@ -1,0 +1,12 @@
+//一开始使用了mintUI，后面没用到
+{
+  "presets": [
+    ["@babel/preset-env", { "modules": false }]
+  ],
+  "plugins": [["component", 
+    {
+      "libraryName": "mint-ui",
+      "style": true
+    }
+  ]]
+}

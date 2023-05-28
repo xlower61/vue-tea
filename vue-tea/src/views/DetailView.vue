@@ -26,7 +26,7 @@
         <div class="good-brief">
           <div class="good-name">
             <h2>{{ good_detail.name }}</h2>
-            <span>性价比首选、茶感十足</span>
+            <span>{{ good_detail.content }}</span>
           </div>
           <div class="good-price">
             <div class="good-price-now">
@@ -80,7 +80,6 @@
         <img src="/images/introduce.jpg" alt="" />
         <img src="/images/introduce.jpg" alt="" />
         <img src="/images/introduce.jpg" alt="" />
-        <img src="/images/introduce.jpg" alt="" />
       </div>
     </section>
 
@@ -89,7 +88,7 @@
         <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
         <van-goods-action-icon icon="cart-o" text="购物车" badge="5" @click="onClickIcon" />
         <van-goods-action-icon icon="star" text="收藏" color="#ccc" @click="onClickIcon" />
-        <van-goods-action-button type="warning" text="加入购物车" />
+        <van-goods-action-button type="warning" text="加入购物车" @click="onClickCart" />
         <van-goods-action-button type="danger" text="立即购买" @click="onClickButton" />
       </van-goods-action>
     </footer>
@@ -97,8 +96,8 @@
 </template>
 
 <script>
-import { Toast } from 'vant'
-import { getDetailAPI } from '@/common/api/getDetailAPI'
+import { getDetailAPI } from '@/common/api/DetailAPI'
+import { addCartAPI } from '@/common/api/CartAPI.js'
 export default {
   name: 'DetailView',
   data() {
@@ -142,36 +141,43 @@ export default {
       this.$router.back()
     },
     goHome() {
-      this.$router.push({
-        name: 'Home'
-      })
+      this.$router.push('/')
     },
     onClickIcon() {
-      Toast('点击图标')
+      this.$toast('点击图标')
     },
     onClickButton() {
-      Toast('点击按钮')
+      this.$toast('点击按钮')
+    },
+    async onClickCart() {
+      let id = this.$route.params.id
+      let { data: res } = await addCartAPI(id)
+      if (res.data.success) {
+        this.$toast(res.data.msg)
+      }
     },
     //改变轮播图右下角数字
     onChange(index) {
       this.current = index
     },
     async getData(id) {
+      this.good_detail = {}
       let { data: res } = await getDetailAPI(id)
-      this.good_detail = res.data
-      this.lastId = this.$route.query.id
+      this.good_detail = res.data.data
+      //记录上一次访问的id
+      this.lastId = this.$route.params.id
     }
   },
   created() {
-    this.getData(this.$route.query.id)
+    this.getData(this.$route.params.id)
   },
   //使用keep-alive缓存 提升性能，减少不必要请求
   activated() {
     //判断是否第一次进入
     if (this.firstIn) {
       //不是第一次进入，判断是否查看同一个
-      if (this.lastId != this.$route.query.id) {
-        this.getData(this.$route.query.id)
+      if (this.lastId != this.$route.params.id) {
+        this.getData(this.$route.params.id)
       }
     }
   },
@@ -183,7 +189,7 @@ export default {
 
 <style lang="scss" scoped>
 .detail {
-  background-color: #eee;
+  background-color: #f5f5f5;
   height: 100vh;
   overflow-y: scroll;
   header {

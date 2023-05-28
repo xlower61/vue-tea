@@ -3,23 +3,30 @@ var router = express.Router()
 let db = require('../db/db.js')
 
 /* GET home page. */
-// router.get('/', function (req, res, next) {
-//   res.render('index', { title: 'Express' })
-// })
+router.get('/', function (req, res, next) {
+  res.render('index', { title: '奶茶是憨憨' })
+})
 
 //查询商品详情
 router.get('/api/detail/data/id', (req, res) => {
   const sqlStr1 = 'select * from goods_list where id=?'
   db.query(sqlStr1, req.query.id, (err, results) => {
     if (err) {
-      return res.send({
+      res.send({
         code: 1,
-        message: '查询失败！'
+        data: {
+          success: false,
+          msg: '查询失败！'
+        }
       })
+      return
     }
-    return res.send({
+    res.send({
       code: 0,
-      data: results[0]
+      data: {
+        success: true,
+        data: results[0]
+      }
     })
   })
 })
@@ -27,6 +34,9 @@ router.get('/api/detail/data/id', (req, res) => {
 //分类页数据
 router.get('/api/sort_list/data', function (req, res, next) {
   res.send({
+    data: {
+      success: true
+    },
     sort: [
       {
         id: 0,
@@ -177,19 +187,25 @@ router.get('/api/sort_list/data', function (req, res, next) {
 //查询商品页面
 router.get('/api/goods_list/data', function (req, res, next) {
   //前端给后端的数据
-  let [k1, k2] = Object.keys(req.query)
+  let [, k2] = Object.keys(req.query)
   let [searchName, means] = Object.values(req.query)
   let sqlStr1 = `select * from goods_list where name like '%${searchName}%' order by ${k2} ${means}`
   db.query(sqlStr1, function (err, results) {
     if (err) {
-      return res.send({
+      res.send({
         code: 1,
-        message: '查询失败！'
+        data: {
+          success: false,
+          msg: '查询失败！'
+        }
       })
     }
-    return res.send({
+    res.send({
       code: 0,
-      data: results
+      data: {
+        success: true,
+        data: results
+      }
     })
   })
 })
@@ -198,7 +214,10 @@ router.get('/api/goods_list/data', function (req, res, next) {
 router.get('/api/home_list/data/2', function (req, res, next) {
   res.send({
     code: 0,
-    data: [
+    data: {
+      success: true
+    },
+    dataList: [
       {
         type: 'adSList',
         arr: [
@@ -222,7 +241,10 @@ router.get('/api/home_list/data/2', function (req, res, next) {
 router.get('/api/home_list/data/1', function (req, res, next) {
   res.send({
     code: 0,
-    data: [
+    data: {
+      success: true
+    },
+    dataList: [
       {
         type: 'adSList',
         arr: [
@@ -245,6 +267,9 @@ router.get('/api/home_list/data/1', function (req, res, next) {
 //首页推荐数据
 router.get('/api/home_list/data/0', function (req, res, next) {
   res.send({
+    data: {
+      success: true
+    },
     //顶部导航栏
     topBar: {
       type: 'topBar',
@@ -259,7 +284,7 @@ router.get('/api/home_list/data/0', function (req, res, next) {
       ]
     },
     //轮播图
-    data: [
+    dataList: [
       {
         type: 'swiperList',
         arr: [
@@ -305,10 +330,10 @@ router.get('/api/home_list/data/0', function (req, res, next) {
           { id: 2, imgURL: '/images/goods2.jpg', name: '茶具-中国陶瓷茶叶罐220ml', price: 26 },
           { id: 3, imgURL: '/images/goods3.jpg', name: '绿茶 远致龙井', price: 118 },
           { id: 4, imgURL: '/images/goods4.jpg', name: '明前春茶 绿茶 龙井', price: 98 },
-          { id: 5, imgURL: '/images/like3.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },
-          { id: 6, imgURL: '/images/like2.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },
-          { id: 7, imgURL: '/images/like1.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },
-          { id: 8, imgURL: '/images/like3.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },
+          { id: 5, imgURL: '/images/goods5.jpg', name: '武夷山高级大红袍2号', price: 99 },
+          { id: 6, imgURL: '/images/goods6.jpg', name: '漳平水仙兰香1号', price: 99 },
+          { id: 7, imgURL: '/images/goods7.jpg', name: '历史名茶黄山毛峰1号', price: 58 },
+          { id: 8, imgURL: '/images/goods8.jpg', name: '云南凤庆经典蜜香滇红', price: 88 },
           { id: 9, imgURL: '/images/like2.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },
           { id: 10, imgURL: '/images/like1.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },
           { id: 11, imgURL: '/images/like3.jpeg', name: '建盏茶具套装 红色芝麻豪 12件套', price: 299 },

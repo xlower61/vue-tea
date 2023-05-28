@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'iconfont'; /* Project id 4017633 */
-  src: url('../iconfonts/iconfont.woff2?t=1683635409268') format('woff2'), url('../iconfonts/iconfont.woff?t=1683635409268') format('woff'), url('../iconfonts/iconfont.ttf?t=1683635409268') format('truetype');
+  src: url('../iconfonts/iconfont.woff2?t=1684410326113') format('woff2'), url('../iconfonts/iconfont.woff?t=1684410326113') format('woff'), url('../iconfonts/iconfont.ttf?t=1684410326113') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lajitong:before {
+  content: '\e615';
 }
 
 .icon-gouwuchekong:before {
@@ -25,10 +29,6 @@
 
 .icon-wode:before {
   content: '\e8a0';
-}
-
-.icon-kefu1:before {
-  content: '\e626';
 }
 
 .icon-fenlei:before {

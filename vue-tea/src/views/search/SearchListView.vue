@@ -1,5 +1,5 @@
 <template>
-  <div class="search-list">
+  <div class="search-list container">
     <div class="big-header">
       <SearchHeader></SearchHeader>
       <ul>
@@ -14,8 +14,8 @@
       </ul>
     </div>
     <section>
-      <ul v-if="goodsListLength">
-        <li v-for="(item, index) in goodsList" :key="index" @click="goDetail(item.id)">
+      <ul v-if="goodsList.length">
+        <li v-for="item in goodsList" :key="item.id" @click="goDetail(item.id)">
           <img v-lazy="item.imgURL" alt="" />
           <h3>{{ item.name }}</h3>
           <div class="price">
@@ -27,6 +27,7 @@
           </div>
         </li>
       </ul>
+
       <div class="noGoods" v-else>没有商品捏...</div>
     </section>
 
@@ -37,7 +38,7 @@
 <script>
 import SearchHeader from '@/components/search/SearchHeader.vue'
 import TabBar from '@/components/common/TabBar.vue'
-import { getSearchAPI } from '@/common/api/getSearchAPI.js'
+import { getSearchAPI } from '@/common/api/SearchAPI.js'
 export default {
   name: 'SearchListView',
   components: { SearchHeader, TabBar },
@@ -54,8 +55,7 @@ export default {
           { name: 'num', key: '销量', has: 1, status: 0 },
           { name: 'common', key: '筛选', has: 0 }
         ]
-      },
-      goodsListLength: 0
+      }
     }
   },
   created() {
@@ -64,7 +64,7 @@ export default {
   watch: {
     //监听路由query.key变化
     $route() {
-      this.getSearchData()
+      if (this.$route.query.key) this.getSearchData()
     }
   },
   computed: {
@@ -79,10 +79,7 @@ export default {
     //请求得到搜索数据
     async getSearchData() {
       const { data: res } = await getSearchAPI(this.$route.query.key, this.orderBy)
-      if (res.data) {
-        this.goodsListLength = res.data.length
-      }
-      this.goodsList = res.data
+      this.goodsList = res.data.data
     },
     //改变标签变红
     changeTab(index) {
@@ -100,7 +97,7 @@ export default {
     goDetail(id) {
       this.$router.push({
         name: 'Detail',
-        query: {
+        params: {
           id
         }
       })
@@ -110,11 +107,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.search-list {
+.big-header {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
 
   ul {
@@ -149,14 +144,12 @@ export default {
 }
 
 section {
-  flex: 1;
-  overflow: hidden;
   background-color: #f5f5f5;
 
   ul {
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: left;
     li {
       display: flex;
       flex-direction: column;
@@ -213,9 +206,7 @@ section {
     width: 50%;
     margin: 100px auto;
     text-align: center;
-    border: 1px solid #b0352f;
-    border-radius: 16px;
-    color: #b0352f;
+    color: #aaa;
   }
 }
 </style>

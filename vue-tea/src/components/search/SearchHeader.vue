@@ -55,6 +55,8 @@ export default {
 
       if (this.searchVal !== this.$route.query.key) {
         this.$router.push({
+          //query传值，记得数据要json字符串化和解析
+          //params刷新会改变
           name: 'search-list',
           query: {
             key: this.searchVal
