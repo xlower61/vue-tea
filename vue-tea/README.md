@@ -1,24 +1,43 @@
 # vue-tea
+项目运行工具  
+前端框架-vue-代码运行软件-vscode  
+后端-node.js-版本18.14.2  
+数据库-MySQL-版本8.0  
+运行前提：系统Windows10及以上-下载了上述工具或其替代软件
 
-## Project setup
+## 项目启动
+### 1、下载前端依赖包
+打开终端至当前文件所在目录运行指令
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
+### 2、下载后端依赖包
+打开终端进入serve文件下运行指令
+```
+npm install
+```
+### 3、数据导入数据库
+```
+（1）打开数据库，点击服务选项下的数据导入，将Dump-vue-tea文件下的sql数据文件导入数据库，为数据库取名
+（2）进入serve文件中的db文件的db.js文件中，根据文件里的注释修改所有字段
+```
+### 4、serve文件终端运行指令开启服务器端口
+```
+npm start
+```
+### 5、打开浏览器进入服务器端口即可查看页面
+```
+http://localhost:3000/#/
+```
+### 6、能通过服务器端口查看页面的原因
+已将前端vue文件打包后放入dist文件中，并将dist文件设置为静态资源，所以不用运行vue就可以打开网页
+所以我们也可以在该提示文件所在目录，运行指令
 ```
 npm run serve
 ```
+开启前端服务器端口，同时保持后端服务器开启，通过
+```
+http://localhost:99/#/
+```
+访问网页
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
