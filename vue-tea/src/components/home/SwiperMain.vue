@@ -31,7 +31,7 @@ export default {
 .my-swipe .van-swipe-item {
   color: #ccc;
   font-size: 0.7467rem;
-  height: 162px;
+  height: 4.32rem;
   text-align: center;
   background-color: #fff;
   img {

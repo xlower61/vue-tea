@@ -152,9 +152,7 @@ export default {
     async onClickCart() {
       let id = this.$route.params.id
       let { data: res } = await addCartAPI(id)
-      if (res.data.success) {
-        this.$toast(res.data.msg)
-      }
+      this.$toast(res.data.msg)
     },
     //改变轮播图右下角数字
     onChange(index) {
@@ -166,6 +164,7 @@ export default {
       this.good_detail = res.data.data
       //记录上一次访问的id
       this.lastId = this.$route.params.id
+      console.log(res.data)
     }
   },
   created() {
@@ -198,24 +197,24 @@ export default {
     top: 0;
     z-index: 999;
     width: 100%;
-    height: 43.9988px;
+    height: 1.1733rem;
     .header-return {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      height: 43.9988px;
+      height: 1.1733rem;
 
       i {
-        width: 34.0012px;
-        height: 34.0012px;
-        font-size: 25.9988px;
+        width: 0.9067rem;
+        height: 0.9067rem;
+        font-size: 0.6933rem;
         text-align: center;
-        line-height: 34.0012px;
+        line-height: 0.9067rem;
         color: #eee;
         background-color: rgba($color: #000000, $alpha: 0.3);
         border-radius: 50%;
-        margin: 0 10.0012px;
+        margin: 0 0.2667rem;
       }
     }
     .header-bar {
@@ -223,15 +222,15 @@ export default {
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      height: 43.9988px;
+      height: 1.1733rem;
       background-color: #fff;
       i {
-        font-size: 22.0012px;
-        padding: 0 10.0012px;
+        font-size: 0.5867rem;
+        padding: 0 0.2667rem;
       }
       div {
-        font-size: 16.0013px;
-        padding: 0 10.0012px;
+        font-size: 0.4267rem;
+        padding: 0 0.2667rem;
       }
     }
   }
@@ -240,19 +239,19 @@ export default {
     .my-swipe {
       .van-swipe-item {
         color: #fff;
-        font-size: 19.9988px;
+        font-size: 0.5333rem;
         text-align: center;
         img {
-          height: 375px;
+          height: 10rem;
         }
       }
 
       .custom-indicator {
         position: absolute;
-        right: 6px;
-        bottom: 7.9987px;
-        padding: 1.9988px 4.9988px;
-        font-size: 15px;
+        right: 0.16rem;
+        bottom: 0.2133rem;
+        padding: 0.0533rem 0.1333rem;
+        font-size: 0.4rem;
         color: #fff;
         background: rgba(0, 0, 0, 0.3);
       }
@@ -260,33 +259,33 @@ export default {
 
     .good-information {
       background-color: #fff;
-      border-bottom: 1.0012px solid #e1e1e1;
+      border-bottom: 0.0267rem solid #e1e1e1;
       .good-name {
         padding: 0.2667rem 0;
-        border-bottom: 1.0012px solid #eee;
+        border-bottom: 0.0267rem solid #eee;
         margin: 0 0.32rem;
         h2 {
           font-size: 0.48rem;
           font-weight: 500;
         }
         span {
-          padding-top: 3px;
-          font-size: 13.9988px;
+          padding-top: 0.08rem;
+          font-size: 0.3733rem;
           color: #999;
         }
       }
 
       .good-price {
-        padding: 16.0013px 12px;
+        padding: 0.4267rem 0.32rem;
         .good-price-now {
           color: red;
           span {
-            font-size: 15px;
+            font-size: 0.4rem;
           }
         }
         .good-price-origin {
           color: #999;
-          font-size: 13.9988px;
+          font-size: 0.3733rem;
           s {
             text-decoration: line-through;
           }
@@ -302,7 +301,7 @@ export default {
         justify-content: space-between;
         padding: 0.2933rem 0;
         margin: 0 0.2667rem;
-        border-bottom: 1.0012px solid #eee;
+        border-bottom: 0.0267rem solid #eee;
 
         .paper-name {
           font-size: 0.35rem;
@@ -412,7 +411,7 @@ export default {
 
   footer {
     width: 100%;
-    height: 49.0012px;
+    height: 1.3067rem;
   }
 }
 </style>

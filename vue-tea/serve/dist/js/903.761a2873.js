@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_tea"]=self["webpackChunkvue_tea"]||[]).push([[903],{6903:function(e,t,n){n.r(t),n.d(t,{default:function(){return l}});var u=function(){var e=this,t=e._self._c;return t("div",{staticClass:"search"},[t("keep-alive",[t("router-view")],1)],1)},a=[],r={name:"SearchView",components:{}},s=r,c=n(1001),i=(0,c.Z)(s,u,a,!1,null,"353096fa",null),l=i.exports}}]);
+//# sourceMappingURL=903.761a2873.js.map

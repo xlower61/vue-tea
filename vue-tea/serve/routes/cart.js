@@ -128,7 +128,6 @@ router.post('/api/getCart', (req, res) => {
   let token = req.headers.token
   let { tel, exp } = jwt.decode(token)
   if (getTime(exp)) {
-    console.log(1)
     return res.send({ code: 1000, data: { success: false, msg: 'token过期！' } })
   }
   const sqlStr1 = 'select * from userinfo where tel =?'

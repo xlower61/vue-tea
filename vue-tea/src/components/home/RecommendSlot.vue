@@ -47,7 +47,7 @@ export default {
     img {
       width: 90%;
       height: 3.84rem;
-      border-radius: 12px;
+      border-radius: 0.32rem;
     }
     .item-detail {
       position: absolute;

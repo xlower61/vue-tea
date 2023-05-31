@@ -93,56 +93,56 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
-  padding-left: 15px;
-  padding-right: 12px;
+  padding-top: 10.0012px;
+  padding-left: 0.4rem;
+  padding-right: 0.32rem;
 }
 .no-history {
-  padding: 15px;
-  font-size: 18px;
+  padding: 0.4rem;
+  font-size: 0.48rem;
   text-align: center;
 }
 .search-history span {
-  font-size: 18px;
+  font-size: 0.48rem;
   font-weight: 400;
 }
 .search-history i {
-  padding-right: 5px;
+  padding-right: 0.1333rem;
   color: red;
-  font-size: 18px;
+  font-size: 0.48rem;
 }
 .search-record {
   display: flex;
   flex-wrap: wrap;
-  padding: 12px 0;
+  padding: 0.32rem 0;
 }
 .search-record li {
-  border: 1px solid #ccc;
-  font-size: 16px;
-  padding: 3px 6px;
-  margin: 10px;
-  line-height: 16px;
+  border: 0.0267rem solid #ccc;
+  font-size: 0.4267rem;
+  padding: 0.08rem 0.16rem;
+  margin: 0.2667rem;
+  line-height: 0.4267rem;
 }
 .search-record-clean {
   text-align: center;
-  font-size: 14px;
+  font-size: 0.3733rem;
   color: #888;
 }
 .recommend {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
-  padding-left: 15px;
-  padding-right: 12px;
+  padding-top: 0.2667rem;
+  padding-left: 0.4rem;
+  padding-right: 0.32rem;
 }
 .recommend span {
-  font-size: 18px;
+  font-size: 0.48rem;
   font-weight: 400;
 }
 .recommend i {
-  padding-right: 5px;
+  padding-right: 0.1333rem;
   color: red;
-  font-size: 18px;
+  font-size: 0.48rem;
 }
 </style>

@@ -99,20 +99,20 @@ section {
   background-color: #f5f5f5;
   font-size: 0.3733rem;
   div {
-    width: 334.9987px;
-    height: 43.9988px;
-    margin: 10.0012px 0;
+    width: 8.9333rem;
+    height: 1.1733rem;
+    margin: 0.2667rem 0;
   }
   input {
-    padding: 0 10.0012px;
-    line-height: 43.9988px;
+    padding: 0 0.2667rem;
+    line-height: 1.1733rem;
     background-color: #fff;
     border: 0.0267rem solid #ccc;
     box-sizing: border-box;
-    border-radius: 6px;
+    border-radius: 0.16rem;
   }
   .login-tel {
-    margin-top: 30px;
+    margin-top: 0.8rem;
     input {
       width: 100%;
     }
@@ -130,7 +130,7 @@ section {
     line-height: 1.1733rem;
     text-align: center;
     color: #fff;
-    border-radius: 6px;
+    border-radius: 0.16rem;
   }
   .login-tab {
     display: flex;

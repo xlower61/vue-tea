@@ -149,12 +149,12 @@ section {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 3px 0.5333rem;
+      padding: 0.08rem 0.5333rem;
       background-color: #fff;
-      margin: 8px 0;
+      margin: 0.2133rem 0;
       img {
-        width: 73.9988px;
-        height: 73.9988px;
+        width: 1.9733rem;
+        height: 1.9733rem;
       }
 
       .goods {
@@ -162,30 +162,30 @@ section {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 15px;
+        padding-left: 0.4rem;
 
         .goods-content {
           display: flex;
           flex: 1;
           justify-content: space-between;
           flex-direction: column;
-          padding-left: 15px;
+          padding-left: 0.4rem;
           .goods-title {
             display: flex;
             justify-content: space-between;
-            padding-top: 6px;
+            padding-top: 0.16rem;
 
             i {
-              font-size: 22.0012px;
+              font-size: 0.5867rem;
             }
             span {
-              font-size: 12px;
+              font-size: 0.32rem;
               padding-right: 0.3733rem;
             }
           }
           .goods-price {
             color: #b0352f;
-            font-size: 14px;
+            font-size: 0.3733rem;
             padding: 0.16rem 0;
           }
           /deep/ .van-stepper {
@@ -225,8 +225,8 @@ footer {
   .order {
     line-height: 1.38rem;
     width: 1.3333rem;
-    font-size: 16.0013px;
-    padding: 0 19.9988px;
+    font-size: 0.4267rem;
+    padding: 0 0.5333rem;
     color: #fff;
     background-color: #b0352f;
     text-align: center;

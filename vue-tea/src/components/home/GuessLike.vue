@@ -2,13 +2,13 @@
   <div class="like">
     <CardSlot>
       <template #title>
-        <span>猜你喜欢</span>
+        <span>产品推荐</span>
       </template>
     </CardSlot>
     <ul>
       <li v-for="item in guessLikeList" :key="item.id" @click="goDetail(item.id)">
         <h2>
-          <img v-lazy="item.imgURL" alt="" />
+          <img v-lazy="item.imgURL" alt="" @load="loadImage()" />
         </h2>
         <h3>{{ item.name }}</h3>
         <div>
@@ -40,6 +40,9 @@ export default {
         () => {},
         () => {}
       )
+    },
+    loadImage() {
+      this.$emit('loadImg')
     }
   }
 }
@@ -58,9 +61,9 @@ export default {
   width: 50%;
 }
 .like h3 {
-  padding: 0 6px;
+  padding: 0 0.16rem;
   width: 85%;
-  font-size: 14px;
+  font-size: 0.3733rem;
   font-weight: 400;
   color: #888;
   white-space: nowrap;
@@ -70,19 +73,20 @@ export default {
 .like ul li > div {
   width: 90%;
   text-align: left;
-  padding: 6px;
+  padding: 0.16rem;
 }
 .like ul li span {
-  font-size: 16px;
+  font-size: 0.4267rem;
   color: #ff0000;
 }
 .like ul li b {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 0.48rem;
   color: #ff0000;
 }
 .like img {
-  width: 176px;
-  height: 176px;
+  width: 4.6933rem;
+  height: 4.6933rem;
+  border-radius: 0.4rem;
 }
 </style>

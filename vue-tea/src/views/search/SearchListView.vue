@@ -115,24 +115,24 @@ export default {
   ul {
     display: flex;
     justify-content: space-around;
-    padding: 8px 0;
-    font-size: 16px;
+    padding: 0.2133rem 0;
+    font-size: 0.4267rem;
 
     li {
       display: flex;
       align-items: center;
-      font-size: 14px;
+      font-size: 0.3733rem;
       font-weight: 600;
 
       .jiantou {
         display: flex;
         flex-direction: column;
-        padding-left: 8px;
+        padding-left: 0.2133rem;
 
         i {
-          font-size: 1px;
-          padding: 2px 0;
-          margin: -2px 0;
+          font-size: 0.0267rem;
+          padding: 0.0533rem 0;
+          margin: -0.0533rem 0;
         }
       }
     }
@@ -156,20 +156,20 @@ section {
       justify-content: center;
       align-items: center;
       width: 50%;
-      padding: 10px;
+      padding: 0.2667rem;
       box-sizing: border-box;
 
       img {
-        width: 170px;
-        height: 170px;
+        width: 4.5333rem;
+        height: 4.5333rem;
       }
 
       h3 {
         width: 100%;
-        font-size: 14px;
+        font-size: 0.3733rem;
         color: #222;
         font-weight: 400;
-        padding: 6px 10px;
+        padding: 0.16rem 0.2667rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -178,25 +178,25 @@ section {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        font-size: 14px;
+        font-size: 0.3733rem;
 
         div:first-child {
-          padding: 3px 6px;
+          padding: 0.08rem 0.16rem;
           color: #b0352f;
 
           span {
-            font-size: 12px;
+            font-size: 0.32rem;
           }
 
           b {
-            font-size: 16px;
+            font-size: 0.4267rem;
           }
         }
         div:last-child {
-          padding: 3px 6px;
+          padding: 0.08rem 0.16rem;
           color: #fff;
           background-color: #b0352f;
-          border-radius: 6px;
+          border-radius: 0.16rem;
         }
       }
     }
@@ -204,7 +204,7 @@ section {
 
   .noGoods {
     width: 50%;
-    margin: 100px auto;
+    margin: 2.6667rem auto;
     text-align: center;
     color: #aaa;
   }

@@ -28,7 +28,7 @@
         <div class="title">支付方式：</div>
         <van-radio-group v-model="radioPayment" direction="horizontal" class="radio">
           <van-radio name="wx" checked-color="#b0352f" icon-size=".4267rem">微信支付</van-radio>
-          <van-radio name="aliPay" checked-color="#b0352f" icon-size="16.0013px">支付宝支付</van-radio>
+          <van-radio name="aliPay" checked-color="#b0352f" icon-size=".4267rem">支付宝支付</van-radio>
         </van-radio-group>
       </div>
       <div class="order-goods">
@@ -156,9 +156,6 @@ section {
           padding: 0.2667rem;
           h4 {
             font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
           }
           .goods-price-num {
             display: flex;

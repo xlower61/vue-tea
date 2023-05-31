@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_tea"]=self["webpackChunkvue_tea"]||[]).push([[164],{4164:function(e,t,u){u.r(t),u.d(t,{default:function(){return c}});var n=function(){var e=this,t=e._self._c;return t("div",[e._v("zhifu")])},a=[],s=u(1291),l={name:"PayResultView",created(){this.getResult()},methods:{async getResult(){let{data:e}=await(0,s.t)(this.$route.query.out_trade_no,this.$route.query.trade_no);console.log(e)}}},r=l,o=u(1001),i=(0,o.Z)(r,n,a,!1,null,null,null),c=i.exports}}]);
+//# sourceMappingURL=164.b6cbdcfd.js.map

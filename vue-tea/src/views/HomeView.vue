@@ -15,17 +15,17 @@
     <!-- 滚动插件  npm install better-scroll -S  -->
     <!-- 滚动区域加上wrapper类 -->
     <section ref="wrapper">
-      <div>
+      <div style="margin-bottom: 20px">
         <div v-for="(item, index) in listData" :key="index">
           <!-- 轮播图 -->
-          <SwiperMain v-if="item.type === 'swiperList'" :swiperList="item.arr"></SwiperMain>
+          <SwiperMain v-if="item.type === 'swiperList'" :swiperList="item.arr" @loadImg="refreshView"></SwiperMain>
           <!-- 中部5图标 -->
-          <MidIcon v-if="item.type === 'iconList'" :iconList="item.arr"></MidIcon>
+          <MidIcon v-if="item.type === 'iconList'" :iconList="item.arr" @loadImg="refreshView"></MidIcon>
           <!-- 推荐 -->
-          <RecommendSlot v-if="item.type === 'recommendList'" :recommendList="item.arr"></RecommendSlot>
-          <AdS v-if="item.type === 'adSList'" :adSList="item.arr"></AdS>
+          <RecommendSlot v-if="item.type === 'recommendList'" :recommendList="item.arr" @loadImg="refreshView"></RecommendSlot>
+          <AdS v-if="item.type === 'adSList'" :adSList="item.arr" @loadImg="refreshView"></AdS>
           <!-- 猜你喜欢 -->
-          <GuessLike v-if="item.type === 'guessLikeList'" :guessLikeList="item.arr"></GuessLike>
+          <GuessLike v-if="item.type === 'guessLikeList'" :guessLikeList="item.arr" @loadImg="refreshView"></GuessLike>
         </div>
       </div>
     </section>
@@ -58,7 +58,8 @@ export default {
         topBar: [],
         color: '#b0352f'
       },
-      listData: {}
+      listData: {},
+      sc: {}
     }
   },
   methods: {
@@ -76,14 +77,17 @@ export default {
       //nextTick在页面DOM更新完毕后使用再滚动插件
       // 滚动页面子元素要比父元素高度高
       this.$nextTick(() => {
-        this.scroll = new BetterScroll(this.$refs.wrapper, {
+        this.sc = new BetterScroll(this.$refs.wrapper, {
           movable: true,
-          zoom: true,
           click: true
         })
       })
+    },
+    refreshView() {
+      this.sc.refresh()
     }
   },
+
   created() {
     this.getData(0)
   },
@@ -99,7 +103,7 @@ export default {
 }
 
 section {
-  padding-bottom: 30px;
+  padding-bottom: 0.8rem;
 }
 ::v-deep .ly-tabs {
   height: 1.0667rem;

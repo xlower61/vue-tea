@@ -40,24 +40,24 @@ header {
   z-index: 999;
 }
 header h1 {
-  width: 1.8667rem;
-  height: 1.12rem;
   padding-right: 0.2133rem;
   padding-left: 0.16rem;
 }
 header h1 img {
-  width: 1.8667rem;
-  height: 0.9333rem;
-  margin-bottom: 1.0667rem;
+  width: 1.9rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  margin-top: 10px;
   overflow: hidden;
 }
 .search {
   display: flex;
   align-items: center;
-  width: 6rem;
+  width: 6.2rem;
   height: 0.8rem;
   background-color: #fff;
   border-radius: 0.32rem;
+  margin-right: 10px;
 }
 .search i {
   padding: 0.2667rem;
@@ -68,7 +68,8 @@ header h1 img {
   color: #ccc;
 }
 .kefu i {
-  font-size: 0.88rem;
+  font-size: 0.7467rem;
   color: #fff;
+  margin-right: 10px;
 }
 </style>

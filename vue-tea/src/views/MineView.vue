@@ -8,10 +8,16 @@
       </div>
     </header>
     <section>
+      <div class="title">个人中心</div>
       <ul>
         <li @click="goAddress">地址管理</li>
-        <li @click="goack">-1</li>
+        <li>我的订单</li>
+        <li>我的收藏</li>
         <li v-if="loginStatus" @click="QUIT">退出登录</li>
+      </ul>
+      <div class="title">优惠福利</div>
+      <ul>
+        <li>优惠券</li>
       </ul>
     </section>
     <TabBar></TabBar>
@@ -50,14 +56,14 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 160.0012px;
+  height: 4.2667rem;
   background-color: #b0352f;
   .login {
     background-color: #f6ab32;
     color: #fff;
-    border-radius: 6px;
-    font-size: 16.0013px;
-    padding: 6px 15px;
+    border-radius: 0.16rem;
+    font-size: 0.4267rem;
+    padding: 0.16rem 0.4rem;
   }
   .logined {
     display: flex;
@@ -77,11 +83,17 @@ header {
 }
 section {
   background-color: #f5f5f5;
+  .title {
+    font-size: 16px;
+    color: #aaa;
+    padding: 10px 10px;
+    border-bottom: 1px solid #ccc;
+  }
   ul {
     li {
-      padding: 12px;
-      font-size: 16.0013px;
-      border-bottom: 1px solid #ccc;
+      padding: 0.32rem;
+      font-size: 0.4267rem;
+      border-bottom: 1px solid #eee;
       background-color: #fff;
     }
   }

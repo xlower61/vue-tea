@@ -209,16 +209,17 @@ export default {
         display: flex;
         flex-direction: column;
         .view-img {
-          height: 100.0012px;
+          height: 2.6667rem;
           img {
             display: block;
             width: 90%;
             height: 90%;
             margin: 0 auto;
+            border-radius: 10px;
           }
         }
         .shop-list:last-child {
-          padding-bottom: 199.0012px;
+          padding-bottom: 6.9333rem;
         }
         .shop-list {
           text-align: center;
@@ -226,13 +227,13 @@ export default {
             div {
               position: relative;
               display: inline-block;
-              font-size: 24px;
+              font-size: 0.64rem;
               font-weight: 400;
-              padding: 16.0013px 0;
+              padding: 0.4267rem 0;
             }
             div::before {
               position: absolute;
-              left: -30px;
+              left: -0.8rem;
               content: '—';
               font-weight: 900;
               color: #ddd;
@@ -262,6 +263,7 @@ export default {
               img {
                 width: 1.4133rem;
                 height: 1.4133rem;
+                border-radius: 50%;
               }
               span {
                 font-size: 0.4267rem;

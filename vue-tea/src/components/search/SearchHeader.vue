@@ -6,7 +6,7 @@
     <div class="search-mid">
       <i class="iconfont icon-search"></i>
       <form action="" onsubmit="return false" @keyup.enter="goSearchList">
-        <input type="text" placeholder="搜索您喜欢的商品" v-model.trim="searchVal" />
+        <input type="text" placeholder="搜索您喜欢的商品" v-model.trim="searchVal" ref="input" />
       </form>
     </div>
     <!-- 右 -->
@@ -24,7 +24,16 @@ export default {
       searchList: []
     }
   },
+  mounted() {
+    window.addEventListener('touchend', this.myTouchMove, true)
+  },
+  deactivated() {
+    window.removeEventListener('touchend', this.myTouchMove, false) // 收起之后移除监听器
+  },
   methods: {
+    myTouchMove() {
+      this.$refs.input.blur() // 表单失去焦点键盘就会自动收起
+    },
     goBack() {
       if (this.$router.history.current.name == 'search-list') {
         this.$router.push('/search')
@@ -36,6 +45,7 @@ export default {
       if (!this.searchVal) {
         return
       }
+
       //判断之前有没有搜索记录的本地存储
       if (!localStorage.getItem('searchList')) {
         //没有

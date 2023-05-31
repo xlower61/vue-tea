@@ -7,6 +7,8 @@ let jwt = require('jsonwebtoken')
 let ali = require('../alipay/ali.js')
 let axios = require('axios')
 let getTime = require('../token/getToken.js')
+let ad = 'http://dabaichuan-corn.natapp1.cc'
+// let ad = 'http://127.0.0.1'
 
 let AlipayFormData = require('alipay-sdk/lib/form.js').default
 
@@ -219,8 +221,8 @@ router.post('/payOrder', (req, res) => {
       formData.addField('bizContent', bizContent)
 
       //支付成功或失败的链接
-      formData.addField('return_url', 'http://localhost:9000/payresult')
-      formData.addField('notify_url', 'http://trzjy5.natappfree.cc/api/paySuccess')
+      formData.addField('return_url', ad + '/#payresult')
+      formData.addField('notify_url', ad + '/api/paySuccess')
       // alipay.trade.page.pay 电脑网站支付
       const results3 = await ali.exec('alipay.trade.wap.pay', {}, { formData: formData }).catch((error) => console.error('caught error!', error))
       //promise对象抛出的错误要处理，不然就报错卡住了

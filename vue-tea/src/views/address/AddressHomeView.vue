@@ -103,7 +103,7 @@ section {
       }
       .address-detail {
         span {
-          padding-right: 6px;
+          padding-right: 0.16rem;
         }
       }
       .active {

@@ -12,7 +12,7 @@ function gettoken(userTel) {
   //口令
   let secrect = 'xiaoluxian'
   //生成token
-  let token = jwt.sign(payload, secrect, { expiresIn: '1m' })
+  let token = jwt.sign(payload, secrect, { expiresIn: '10h' })
   return token
 }
 
@@ -217,9 +217,7 @@ router.post('/api/codeLogin', (req, res) => {
       if (results1.length > 0) {
         let { id, tel, imgURL, nickName, token } = results1[0]
         let token1 = gettoken(userTel)
-        db.query('update userinfo set token=? where id=?', [token1, id], (err, results) => {
-          console.log(token1)
-        })
+        db.query('update userinfo set token=? where id=?', [token1, id], (err, results) => {})
         res.send({
           code: 200,
           data: {

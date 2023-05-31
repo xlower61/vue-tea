@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 header {
   width: 100%;
-  height: 44px;
+  height: 1.1733rem;
   background-color: #b0352f;
   display: flex;
   justify-content: space-between;

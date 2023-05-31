@@ -110,7 +110,7 @@ section {
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f5;
-  font-size: 13.9988px;
+  font-size: 0.3733rem;
   div {
     width: 8.9333rem;
     height: 1.1733rem;
@@ -139,17 +139,17 @@ section {
     }
     button {
       height: 1.1733rem;
-
       border: 0;
       color: #fff;
       border-radius: 0.16rem;
       box-sizing: border-box;
-      padding: 0 0.5333rem;
+      font-size: 0.3733rem;
+      padding: 0 0.2667rem;
     }
   }
   .login-in {
     background-color: #b0352f;
-    line-height: 43.9988px;
+    line-height: 1.1733rem;
     text-align: center;
     color: #fff;
     border-radius: 0.16rem;

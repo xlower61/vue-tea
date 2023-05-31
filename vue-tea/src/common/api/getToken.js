@@ -1,4 +1,8 @@
 export const getToken = () => {
-  let token = JSON.parse(localStorage.getItem('teaUserInfo')).token
-  return token
+  if (!JSON.parse(localStorage.getItem('teaUserInfo'))) {
+    return null
+  } else {
+    let token = JSON.parse(localStorage.getItem('teaUserInfo')).token
+    return token
+  }
 }

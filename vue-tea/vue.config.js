@@ -4,11 +4,13 @@ module.exports = defineConfig({
 })
 module.exports = {
   devServer: {
-    host: 'localhost',
-    port: 9000 // 端口
-  }
+    host: '127.0.0.1',
+    port: 99 // 端口
+  },
+  publicPath: './'
 }
 
 //为了好维护css，安装了sass
+
 // npm install node-sass -S
 // npm install sass-loader -S

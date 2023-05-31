@@ -22,6 +22,7 @@ export const getCartAPI = () => {
 //加入购物车
 export const addCartAPI = (goodsId) => {
   token = getToken()
+
   if (!token) {
     return noToken
   }
